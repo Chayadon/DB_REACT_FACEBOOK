@@ -4,7 +4,7 @@ import ButtonShowdata from "../showdata/ButtonShowdata" ;
 import ButtonRegister from "../register/ButtonRegister" ;
 import './style.css' ;
 
-//localStorage.setItem('key', 0);
+localStorage.setItem('key', localStorage.getItem('key'));
 export default class Facebook extends Component {
   state = {
     isLoggedIn: false,
@@ -18,14 +18,14 @@ export default class Facebook extends Component {
 	localStorage.setItem('key', 0);
 	console.log("Hello");
 	window.location.reload(true);
-	window.location.href = 'https://test.chayadon.com/';
+	window.location.href = ' ใส่ URLเว็บของตัวเอง  ';
 	}
 
   responseFacebook = response => {
     console.log(response);
 //  localStorage.setItem('key', 1);
     this.setState({
-      isLoggedIn: Number(localStorage.getItem('key')),
+      isLoggedIn: localStorage.getItem('key'),
       userID: response.userID,
       name: response.name,
       email: response.email,
@@ -61,8 +61,8 @@ export default class Facebook extends Component {
     } else {
       fbContent = (
         <FacebookLogin
-          appId="216252089722355"
-          autoLoad={Number( localStorage.getItem('key') )   }
+          appId="ใส่Facebook ID ของตัวเอง"
+          autoLoad={Number(localStorage.getItem('key'))}
           fields="name,email,picture"
           onClick={this.componentClicked}
           callback={this.responseFacebook}
